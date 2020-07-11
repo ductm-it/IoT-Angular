@@ -1,0 +1,59 @@
+
+@import "../../node_modules/@angular/material/theming";
+@import "../../node_modules/ngx-daterangepicker-material/daterangepicker-theme.scss";
+
+.first-day {
+	background-color: greenyellow;
+}
+
+.last-day {
+	background-color: green;
+}
+
+.empty-week {
+	background-color: rosybrown;
+}
+
+.last-previous-day {
+	background-color: rgb(218, 226, 145);
+}
+
+.first-next-day {
+	background-color: rgb(229, 255, 0);
+}
+
+// Styles for the docs app that are based on the current theme.
+@mixin material-docs-app-theme($theme) {
+	$primary: map-get($theme, primary);
+	$accent: map-get($theme, accent);
+	$warn: map-get($theme, warn);
+	$background: map-get($theme, background);
+	$foreground: map-get($theme, foreground);
+	$next-theme: mat-palette($mat-red);
+
+	.docs-app-background {
+		background: mat-color($background, background);
+	}
+
+	body {
+		color: mat-color($foreground, text);
+	}
+
+	.docs-footer {
+		background: mat-color($primary);
+		color: mat-color($primary, default-contrast);
+	}
+
+	.is-next-version {
+		background: mat-color($next-theme, 900) !important;
+	}
+	@include date-range-picker-theme($theme);
+}
+
+// Define the light theme.
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include material-docs-app-theme($theme);

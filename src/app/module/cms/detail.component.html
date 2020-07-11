@@ -1,0 +1,12 @@
+<form *ngIf="inputs" class="row" id="master-form" [formGroup]="formGroup" (ngSubmit)="submit()">
+	<div class="col-lg-12">
+		<app-form-component [inputs]="inputs" [formGroup]="formGroup"></app-form-component>
+		<div class="row">
+			<div class="col-lg-12">
+				<button mat-raised-button color="warn" type="button" (click)="goBack()">Back</button>
+				<button mat-raised-button color="primary" type="submit" form="master-form"
+					[disabled]="formGroup.invalid">Submit</button>
+			</div>
+		</div>
+	</div>
+</form>

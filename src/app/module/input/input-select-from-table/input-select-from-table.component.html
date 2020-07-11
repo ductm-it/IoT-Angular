@@ -1,0 +1,15 @@
+<mat-form-field [ngClass]="inputConfig.classes" [appearance]="inputConfig.appearance">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<mat-icon *ngIf="inputConfig.matSuffix" matSuffix>{{ inputConfig.matSuffix }}</mat-icon>
+	<mat-icon *ngIf="inputConfig.matPrefix" matPrefix>{{ inputConfig.matPrefix }}</mat-icon>
+	<mat-hint *ngIf="inputConfig.hint">{{ inputConfig.hint }}</mat-hint>
+	<mat-select [formControl]="inputConfig.formControl" [placeholder]="inputConfig.placeholder" [multiple]="inputConfig.param.multiple">
+		<mat-option>
+			<ngx-mat-select-search [formControl]="filterCtrl" [placeholderLabel]="inputConfig.placeholder"></ngx-mat-select-search>
+		</mat-option>
+		<mat-option *ngIf="!inputConfig.param.multiple">{{ 'None' }}</mat-option>
+		<mat-option *ngFor="let param of selectedOptions" [value]="param.id">{{ param.display }}</mat-option>
+		<mat-option *ngFor="let param of options" [value]="param.id">{{ param.display }}</mat-option>
+	</mat-select>
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>

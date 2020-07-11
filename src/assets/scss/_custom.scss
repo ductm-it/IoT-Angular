@@ -1,0 +1,10 @@
+/* Add here all your CSS customizations */
+.minimum-scroll-bar::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+.minimum-scroll-bar::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
+}

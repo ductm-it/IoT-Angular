@@ -1,0 +1,11 @@
+<mat-form-field [ngClass]="inputConfig.classes" [floatLabel]="'always'">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<input matInput type="text" [formControl]="inputConfig.formControl" [placeholder]="inputConfig.placeholder">
+	<img *ngIf="imageUrl" [src]="imageUrl | secure | async" alt="" srcset="">
+	<div class="input-file" [ngClass]="uploading ? 'uploading' : ''">
+		<input *ngIf="fileInput" type="file" accept="image/*" [formControl]="fileInput" (change)="fileChanged($event)">
+		<p>{{ files ? files : 'Drag your files here or click in this area.' }}</p>
+		<mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+	</div>
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>

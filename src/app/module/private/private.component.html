@@ -1,0 +1,24 @@
+<app-private-header></app-private-header>
+
+
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+
+	<div class="dashboard-sidebar">
+		<app-private-sidebar></app-private-sidebar>
+	</div>
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container minimum-scroll-bar" data-simplebar>
+		<div class="dashboard-content-inner">
+
+			<router-outlet></router-outlet>
+
+			<app-private-footer></app-private-footer>
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+
+</div>
+<!-- Dashboard Container / End -->

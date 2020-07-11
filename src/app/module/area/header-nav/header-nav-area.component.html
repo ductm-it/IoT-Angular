@@ -1,0 +1,70 @@
+<!-- Header -->
+<div id="header">
+	<div class="container">
+
+		<!-- Left Side Content -->
+		<div class="left-side">
+
+			<!-- Logo -->
+			<div id="logo">
+				<a [routerLink]="[urlService.publicHome]"><img src="/assets/images/logo.png" alt=""></a>
+			</div>
+
+			<!-- Main Navigation -->
+			<nav id="navigation">
+				<ul id="responsive">
+					<ng-container *ngFor="let f1 of navs">
+						<ng-container *ngIf="f1.navs">
+							<li><a [routerLink]="[f1.link]" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current">{{ f1.title }}</a>
+								<ul class="dropdown-nav">
+									<ng-container *ngFor="let f2 of f1.navs">
+										<ng-container *ngIf="!f2.navs">
+											<li><a [routerLink]="[f2.link]">{{ f2.title }}</a></li>
+										</ng-container>
+										<ng-container *ngIf="f2.navs">
+											<li><a [routerLink]="[f2.link]">{{ f2.title }}</a>
+												<ul class="dropdown-nav">
+													<li *ngFor="let f3 of f2.navs"><a
+															[routerLink]="[f3.link]">{{ f3.title }}</a>
+													</li>
+												</ul>
+											</li>
+										</ng-container>
+									</ng-container>
+								</ul>
+							</li>
+						</ng-container>
+						<ng-container *ngIf="!f1.navs">
+							<li><a [routerLink]="[f1.link]" routerLinkActive="current">{{ f1.title }}</a></li>
+						</ng-container>
+					</ng-container>
+				</ul>
+			</nav>
+			<div class="clearfix"></div>
+			<!-- Main Navigation / End -->
+
+		</div>
+		<!-- Left Side Content / End -->
+
+
+		<!-- Right Side Content / End -->
+		<div class="right-side">
+
+			<app-notification-area></app-notification-area>
+			<app-user-area></app-user-area>
+
+			<!-- Mobile Navigation Button -->
+			<span class="mmenu-trigger" toggleMenuMobile>
+				<button class="hamburger hamburger--collapse" type="button">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button>
+			</span>
+
+		</div>
+		<!-- Right Side Content / End -->
+
+	</div>
+</div>
+<!-- Header / End -->

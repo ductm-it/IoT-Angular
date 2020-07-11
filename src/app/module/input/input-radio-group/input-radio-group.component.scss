@@ -1,0 +1,11 @@
+input {
+	display: none;
+}
+:host ::ng-deep {
+	.mat-form-field-underline {
+		display: none;
+	}
+}
+.mat-radio-button ~ .mat-radio-button {
+	margin-left: 16px;
+  }

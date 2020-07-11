@@ -1,0 +1,30 @@
+<mat-form-field [ngClass]="inputConfig.classes" [floatLabel]="'always'" [appearance]="inputConfig.appearance">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<mat-icon *ngIf="inputConfig.matSuffix" matSuffix>{{ inputConfig.matSuffix }}</mat-icon>
+	<mat-icon *ngIf="inputConfig.matPrefix" matPrefix>{{ inputConfig.matPrefix }}</mat-icon>
+	<mat-hint *ngIf="inputConfig.hint">{{ inputConfig.hint }}</mat-hint>
+	<input matInput type="text" [formControl]="inputConfig.formControl" [placeholder]="inputConfig.placeholder">
+	<div class="row">
+		<div class="col-sm-12">
+			<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+				<ng-container [matColumnDef]="'table'">
+					<th mat-header-cell *matHeaderCellDef></th>
+					<td mat-cell *matCellDef="let element">
+						{{ element.table | enum }}
+					</td>
+				</ng-container>
+				<ng-container *ngFor="let column of displayedColumns; let index = index">
+					<ng-container [matColumnDef]="column">
+						<th mat-header-cell *matHeaderCellDef> {{ column | label }} </th>
+						<td mat-cell *matCellDef="let element">
+							<mat-checkbox [checked]="checked(element.table, index)" (change)="onChange(element.table, index, $event)"></mat-checkbox>
+						</td>
+					</ng-container>
+				</ng-container>
+				<tr mat-header-row *matHeaderRowDef="['table'].concat(displayedColumns)"></tr>
+				<tr mat-row *matRowDef="let row; columns: ['table'].concat(displayedColumns)"></tr>
+			</table>
+		</div>
+	</div>
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>

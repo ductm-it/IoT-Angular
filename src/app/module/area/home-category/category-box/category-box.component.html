@@ -1,0 +1,10 @@
+<a [routerLink]="[data.link]" class="category-box">
+	<div class="category-box-icon">
+		<i [ngClass]="data.icon"></i>
+	</div>
+	<div class="category-box-counter">{{ data.value }}</div>
+	<div class="category-box-content">
+		<h3>{{ data.title }}</h3>
+		<p>{{ data.description }}</p>
+	</div>
+</a>

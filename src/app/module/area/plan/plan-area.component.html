@@ -1,0 +1,15 @@
+<!-- Billing Cycle  -->
+<div class="billing-cycle-radios margin-bottom-70">
+	<div class="radio billed-monthly-radio" *ngFor="let type of memberShip.types">
+		<input [id]="'f' + type.value" name="radio-payment-type" type="radio" [(ngModel)]="planType" [value]="type.value"
+			(change)="typeChange(type)">
+		<label [for]="'f' + type.value"><span class="radio-label"></span>{{ type.name }}
+			<span class="small-label" *ngIf="type.tag">{{ type.tag }}</span>
+		</label>
+	</div>
+</div>
+
+<!-- Pricing Plans Container -->
+<div class="pricing-plans-container">
+	<app-plan-box *ngFor="let plan of memberShip.plans" [plan]="plan" [planType]="planType"></app-plan-box>
+</div>

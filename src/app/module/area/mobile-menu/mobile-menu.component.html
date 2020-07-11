@@ -1,0 +1,24 @@
+<div class="mm-panels">
+	<div class="mm-panel mm-hasnavbar" *ngFor="let menu of navs; let index = index;"
+		[ngClass]="index == selected ? 'mm-opened' : ('mm-hidden' + (navs[selected].parentIndex == index ? ' mm-subopened' : ''))">
+		<div class="mm-navbar">
+			<a class="mm-btn mm-prev" href="javascript:void(0)" (click)="selected = menu.parentIndex"
+				*ngIf="menu.listIndex !== 0"><span class="mm-sronly">Close submenu ({{ menu.title }})</span></a>
+			<a class="mm-title" href="javascript:void(0)" (click)="selected = menu.parentIndex">{{ menu.title }}</a>
+		</div>
+		<ul class="mm-listview">
+			<li *ngFor="let sub of menu.navs">
+				<ng-container *ngIf="sub.navs">
+					<em class="mm-counter">{{ sub.navs.length }}</em>
+					<a href="javascript:void(0)" (click)="selected = sub.listIndex" class="mm-next mm-fullsubopen">
+						<span class="mm-sronly">Open submenu ({{ sub.title }})</span>
+					</a>
+					<a href="javascript:void(0)">{{ sub.title }}</a>
+				</ng-container>
+				<ng-container *ngIf="!sub.navs">
+					<a [routerLink]="[sub.link]">{{ sub.title }}</a>
+				</ng-container>
+			</li>
+		</ul>
+	</div>
+</div>

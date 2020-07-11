@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import 'assets/daterange-picker.scss';
+@import 'assets/scss/style.scss';
+
+mat-form-field {
+	width: 100%;
+	.mat-form-field-infix {
+		width: 100%;
+	}
+}
+
+
+
+mat-form-field {
+	input {
+		box-shadow: none;
+		height: unset;
+		line-height: unset;
+		background-color: unset;
+
+		&:focus,
+		&[type="text"],
+		&[type="password"],
+		&[type="email"],
+		&[type="number"],
+		&[type="text"]:focus,
+		&[type="password"]:focus,
+		&[type="email"]:focus,
+		&[type="number"]:focus,
+		&[type="radio"] {
+			height: unset;
+			line-height: unset;
+			margin: 0;
+			box-shadow: none;
+			padding: 0px;
+			font-weight: unset;
+			font-size: unset;
+			color: unset;
+			background-color: unset;
+		}
+
+		&:-webkit-autofill {
+			&:focus {
+				-webkit-box-shadow: none !important;
+				-webkit-text-fill-color: none !important;
+			}
+			-webkit-box-shadow: none !important;
+			-webkit-text-fill-color: none !important;
+		}
+	}
+	textarea,
+	select,
+	textarea:focus {
+		box-shadow: none;
+	}
+}

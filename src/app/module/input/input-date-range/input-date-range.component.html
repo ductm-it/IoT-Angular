@@ -1,0 +1,11 @@
+<mat-form-field [ngClass]="inputConfig.classes" [appearance]="inputConfig.appearance">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<mat-icon matSuffix (click)="open()">calendar_today</mat-icon>
+	<mat-hint *ngIf="inputConfig.hint">{{ inputConfig.hint }}</mat-hint>
+	<input matInput type="text" [textMask]="{ mask: mask, guide: true, showMask: true }" [formControl]="textFormControl"
+		[placeholder]="inputConfig.placeholder">
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>
+
+<input [formControl]="pickerFormControl" class="date-range-picker" ngxDaterangepickerMd
+	[locale]="{applyLabel: 'OK', format: dateFormat}" [showDropdowns]="true" (change)="updateDateRange($event)" />

@@ -1,0 +1,9 @@
+<mat-form-field [ngClass]="inputConfig.classes" [floatLabel]="'always'">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<input matInput type="text" [formControl]="inputConfig.formControl" [placeholder]="inputConfig.placeholder">
+	<mat-radio-group [formControl]="inputConfig.formControl">
+		<mat-radio-button *ngFor="let param of params" [value]="param" >{{param}}</mat-radio-button>
+	</mat-radio-group>
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>
+

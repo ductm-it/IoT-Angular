@@ -1,0 +1,8 @@
+@import '../../../assets/scss/variables';
+
+.dashboard-sidebar, .dashboard-content-container {
+	height: calc(100vh - #{$header-height});
+}
+.dashboard-content-container {
+	overflow-x: auto;
+}

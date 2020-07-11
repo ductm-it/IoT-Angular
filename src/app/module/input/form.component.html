@@ -1,0 +1,25 @@
+<div class="row">
+	<ng-container *ngFor="let elem of inputConfigs">
+		<ng-container [ngSwitch]="elem.type">
+			<app-input-text *ngSwitchCase="'String'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-text>
+			<app-input-number *ngSwitchCase="'Number'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-number>
+			<app-input-decimal *ngSwitchCase="'Decimal'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-decimal>
+			<app-input-password *ngSwitchCase="'Password'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-password>
+			<app-input-select-from-enum *ngSwitchCase="'SelectFromEnum'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-select-from-enum>
+			<app-input-select-from-table *ngSwitchCase="'SelectFromTable'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-select-from-table>
+			<app-input-email *ngSwitchCase="'Email'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-email>
+			<app-input-date *ngSwitchCase="'Date'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-date>
+			<app-input-file *ngSwitchCase="'File'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-file>
+			<app-input-image *ngSwitchCase="'Image'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-image>
+			<app-input-phone *ngSwitchCase="'PhoneNumber'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-phone>
+			<app-input-username *ngSwitchCase="'Username'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-username>
+			<app-input-user-role *ngSwitchCase="'UserRole'" [inputConfig]="elem" [ngClass]="'col-sm-12'"></app-input-user-role>
+			<app-input-radio-group *ngSwitchCase="'RadioGroup'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-radio-group>
+			<app-input-boolean *ngSwitchCase="'Boolean'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-boolean>
+			<app-input-date *ngSwitchCase="'Date'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-date>
+			<app-input-date-range *ngSwitchCase="'DateRange'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-date-range>
+			<app-input-date-time *ngSwitchCase="'DateTime'" [inputConfig]="elem" [ngClass]="'col-sm-6'"></app-input-date-time>
+			<div class="col-sm-6" *ngSwitchDefault>{{ elem.type }}</div>
+		</ng-container>
+	</ng-container>
+</div>

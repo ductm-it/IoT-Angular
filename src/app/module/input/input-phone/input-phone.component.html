@@ -1,0 +1,9 @@
+<mat-form-field [ngClass]="inputConfig.classes" [appearance]="inputConfig.appearance">
+	<mat-label>{{ inputConfig.name | label }}</mat-label>
+	<mat-icon *ngIf="inputConfig.matSuffix" matSuffix>{{ inputConfig.matSuffix }}</mat-icon>
+	<mat-icon *ngIf="inputConfig.matPrefix" matPrefix>{{ inputConfig.matPrefix }}</mat-icon>
+	<mat-hint *ngIf="inputConfig.hint">{{ inputConfig.hint }}</mat-hint>
+	<input matInput type="tel" [formControl]="inputConfig.formControl" [placeholder]="inputConfig.placeholder">
+	<mat-error *ngFor="let error of errors">{{ error }}</mat-error>
+</mat-form-field>
+

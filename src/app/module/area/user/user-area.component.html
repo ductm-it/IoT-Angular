@@ -1,0 +1,54 @@
+<!-- User Menu -->
+<div class="header-widget">
+
+	<!-- Messages -->
+	<div class="header-notifications user-menu" #user>
+		<div class="header-notifications-trigger" [toggleClick]="user">
+			<a href="javascript:void(0)">
+				<div class="user-avatar" [ngClass]="userService.signed ? 'status-online' : ''"><img
+						[src]="userService.info.avatar" alt=""></div>
+			</a>
+		</div>
+
+		<!-- Dropdown -->
+		<div class="header-notifications-dropdown">
+
+			<!-- User Status -->
+			<div class="user-status">
+
+				<!-- User Name / Avatar -->
+				<div class="user-details">
+					<div class="user-avatar" [ngClass]="userService.signed ? 'status-online' : ''"><img
+							[src]="userService.info.avatar" alt="">
+					</div>
+					<div class="user-name">
+						{{ userService.info.display }} <span>Freelancer</span>
+					</div>
+				</div>
+
+				<!-- User Status Switcher -->
+				<div class="status-switch" id="snackbar-user-status">
+					<label class="user-online current-status">Online</label>
+					<label class="user-invisible">Invisible</label>
+					<!-- Status Indicator -->
+					<span class="status-indicator" aria-hidden="true"></span>
+				</div>
+			</div>
+
+			<ul class="user-menu-small-nav">
+				<li><a routerLinkActive="active" [routerLink]="[urlService.privateDashboard]"><i
+							class="icon-material-outline-dashboard"></i>
+						Dashboard</a></li>
+				<li><a routerLinkActive="active" [routerLink]="[urlService.privateSetting]"><i
+							class="icon-material-outline-settings"></i>
+						Settings</a></li>
+				<li><a routerLinkActive="active" [routerLink]="[urlService.authSignin]"><i
+							class="icon-material-outline-power-settings-new"></i> Logout</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+</div>
+<!-- User Menu / End -->

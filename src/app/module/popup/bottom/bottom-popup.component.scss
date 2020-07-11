@@ -1,0 +1,21 @@
+ul {
+	list-style: none;
+	padding: 0;
+    margin-bottom: 0;
+
+	li {
+		line-height: 20px;
+		border-radius: 4px;
+		padding: 5px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+input[type="text"] {
+	display: none;
+}
+:host ::ng-deep {
+	.mat-form-field-underline {
+		display: none;
+	}
+}
+.mat-elevation-z8 {
+	width: 100%;
+	box-shadow: none;
+}

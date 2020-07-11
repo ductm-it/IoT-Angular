@@ -1,0 +1,5 @@
+<p *ngIf="data.title">{{ data.title }}</p>
+<ul class="bottom-popup">
+	<li *ngFor="let option of data.options" (click)="close(option.value)" [ngStyle]="option.style">{{ option.message }}
+	</li>
+</ul>

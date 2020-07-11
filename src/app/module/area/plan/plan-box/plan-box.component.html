@@ -1,0 +1,17 @@
+<div class="pricing-plan" [ngClass]="plan.recommendation ? 'recommended' : ''">
+	<div class="recommended-badge" *ngIf="plan.recommendation">{{ plan.recommendationText || 'Recommended' }}</div>
+	<h3>{{ plan.title }}</h3>
+	<p class="margin-top-10">{{ plan.description }}</p>
+	<ng-container *ngFor="let price of plan.prices">
+		<div *ngIf="price.type == planType" class="pricing-plan-label">
+			<strong>{{ (price.prefix || '') + price.value + (price.suffix || '') }}</strong>/ {{ price.unit }}</div>
+	</ng-container>
+	<div class="pricing-plan-features">
+		<strong>Features of {{ plan.title }}</strong>
+		<ul>
+			<li *ngFor="let feature of plan.features">{{ feature }}</li>
+		</ul>
+	</div>
+	<a href="javascript:void(0)" (click)="plan.action.click(plan)"
+		class="button full-width margin-top-20">{{ plan.action.name }}</a>
+</div>
